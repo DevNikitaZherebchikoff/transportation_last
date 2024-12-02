@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="ru">
+<link rel="stylesheet" href="/style_blog.css">
+<head>
+    <title>Автоблог</title>
+</head>
+<body>
+<h1>Автоблог</h1>
+<ul>
+    <li><a href="/">На главную</a></li>
+    <li><a href="/blog_admin">Административная панель</a></li>
+</ul>
+<div>
+    <h2>Все записи блога</h2>
+    <ul>
+        <th:block th:each="post : ${listArticle}">
+            <li>
+                <h3 th:text="${post.title}"></h3>
+                <p>Автор: <span th:text="${post.author}"></span></p>
+                <p>Дата публикации: <span th:text="${post.publishDate}"></span></p>
+                <p th:text="${post.maintext}"></p>
+            </li>
+        </th:block>
+    </ul>
+</div>
+</body>
+</html>
